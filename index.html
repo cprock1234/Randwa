@@ -117,7 +117,51 @@ https://www.tooplate.com/view/2117-infinite-loop
                     <div class="tm-intro-text-container">
                         <h2 class="tm-text-primary mb-4">Community expansion</h2>
                         <p class="mb-4 tm-intro-text">
-                      We are actively expanding the community for better cordination and support please help us by donating.Upi Id:7892407890@ybl</p>
+                      We are actively expanding the community for better cordination and support please help us by donating.</p>
+					  <p> Please donate using below pay button</p>
+					  <button id="rzp-button1">Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_lG2gk33PsCu4Ao", // Enter the Key ID generated from the Dashboard
+    "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_IJ8KJaei9RIKVD", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "Chhtrasal Pandey",
+        "email": "chhtrasalpandey1234@gmail.com",
+        "contact": "7892405980"
+    },
+    "notes": {
+        "address": "ARES Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
                           
                           <div class="tm-continue">
                             <a href="#testimonials" class="tm-intro-text tm-btn-primary">Learn More</a>
@@ -284,7 +328,7 @@ https://www.tooplate.com/view/2117-infinite-loop
             </div>
             
             <div class="col-sm-12 col-md-6">
-              <form action="" method="get">
+              <form action="mailto:chhtrasalpandey1111@gmail.com" method="post" enctype="text/plain">
                 <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
                 <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
                 <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
@@ -302,7 +346,7 @@ https://www.tooplate.com/view/2117-infinite-loop
                 </div>
                 
                 <div class="contact-item">
-                  <a rel="nofollow" href="mailto:mail@company.com" class="item-link">
+                  <a rel="nofollow" href="mailto:akhandranwaektasangh@gmail.com" class="item-link">
                       <i class="far fa-2x fa-envelope mr-4"></i>
                       <span class="mb-0">akhandranwaektasangh@gmail.com</span>
                   </a>              
@@ -316,7 +360,7 @@ https://www.tooplate.com/view/2117-infinite-loop
                 </div>
                 
                 <div class="contact-item">
-                  <a rel="nofollow" href="tel:0100200340" class="item-link">
+                  <a rel="nofollow" href="tel:7892405980" class="item-link">
                       <i class="fas fa-2x fa-phone-square mr-4"></i>
                       <span class="mb-0">7892405980</span>
                   </a>              
